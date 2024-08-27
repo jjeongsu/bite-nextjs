@@ -23,12 +23,15 @@ import { BookData } from '@/types'
 
 export default function Page() {
   const router = useRouter()
+
   const [books, setBooks] = useState<BookData[]>([])
   const q = router.query.q
+
   const fetchSearchResult = async () => {
     const data = await fetchBooks(q as string)
     setBooks(data)
   }
+
   useEffect(() => {
     if (q) {
       fetchSearchResult()

@@ -8,8 +8,6 @@ import fetchBooks from '@/lib/fetch-books'
 import fetchRandombooks from '@/lib/fetch-random-books'
 
 export const getStaticProps = async () => {
-  console.log('인덱스페이지')
-  //병렬 실행
   const [allBooks, recoBooks] = await Promise.all([
     fetchBooks(),
     fetchRandombooks(),
