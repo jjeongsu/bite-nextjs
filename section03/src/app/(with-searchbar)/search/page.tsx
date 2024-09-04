@@ -1,3 +1,6 @@
+import books from '../../../mock/book.json'
+import BookItem from '@/components/book-item'
+
 export default function Page({
   searchParams,
 }: {
@@ -5,5 +8,11 @@ export default function Page({
     q?: string
   }
 }) {
-  return <>서치 페이지 {searchParams.q}</>
+  return (
+    <div>
+      {books.map((book: any) => (
+        <BookItem key={book.id} {...book} />
+      ))}
+    </div>
+  )
 }
