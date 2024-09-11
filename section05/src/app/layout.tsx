@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
 import './globals.css'
 import Link from 'next/link'
 import style from './layout.module.css'
@@ -11,7 +10,10 @@ export const metadata: Metadata = {
 }
 
 async function Footer() {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`)
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: 'force-cache' }
+  )
 
   if (!response.ok) {
     return <div>제작 @Jade</div>

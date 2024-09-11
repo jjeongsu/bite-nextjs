@@ -11,6 +11,9 @@ export default function Searchbar() {
   //이전 page router 에서는
   // router.query.q
   const searchParms = useSearchParams() //현재 페이지에 전달된 query string 꺼냄
+
+  /*useSearchParams는 비동기적으로 동작*/
+
   const q = searchParms.get('q') // 가져올 query string
 
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
